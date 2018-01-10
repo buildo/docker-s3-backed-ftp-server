@@ -14,7 +14,7 @@ function set_s3fs_passwd_file {
 
 function mount_s3_bucket {
     echo "Mounting s3 bucket '"$S3_BUCKET"' to /srv"
-    s3fs -d -o passwd_file=/etc/passwd-s3fs,use_cache=/tmp,umask=000,allow_other "$1":/ /srv
+    s3fs -d -o passwd_file=/etc/passwd-s3fs,use_cache=/tmp,umask=000,allow_other,url="$2" "$1":/ /srv
 }
 
 function vsftpd_stop {
@@ -30,7 +30,7 @@ function vsftpd_stop {
 }
 
 set_s3fs_passwd_file
-mount_s3_bucket "$S3_BUCKET"
+mount_s3_bucket "$S3_BUCKET" "$AWS_S3_URL"
 vsftpd -v
 
 trap vsftpd_stop SIGINT SIGTERM

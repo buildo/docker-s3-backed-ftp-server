@@ -22,6 +22,7 @@ $ docker run -itd \
   -e 'AWS_SECRET_ACCESS_KEY=X3p...lK1' \
   -e FTP_USER=vftp \
   -e FTP_PASSWORD='$1$qSvGek8Y$r4xPYlK5lCWhuVxdfKvf7.' \
+  -e AWS_S3_URL='https://s3-eu-central-1.amazonaws.com' \
     flaccid/s3-backed-ftp-server
 ```
 
