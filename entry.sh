@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+: ${AWS_S3_URL:='https://s3.amazonaws.com'}
+
 set -e
 
 if [ ! -z "$FTP_USER" -a ! -z "$FTP_PASSWORD" ]; then
     echo "Adding virtual user '$FTP_USER'"
-    /add-virtual-user.sh -d "$FTP_USER" "$FTP_PASSWORD"
+    /add-virtual-user.sh -d $FTP_USER $FTP_PASSWORD
 fi
 
 function set_s3fs_passwd_file {
