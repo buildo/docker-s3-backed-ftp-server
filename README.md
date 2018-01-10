@@ -6,7 +6,7 @@ Docker image for an S3-backed FTP server powered by vsftpd and s3fs-fuse.
 
 ### Build
 
-    $ docker build -t s3-backed-ftp-server .
+    on push to [quay.io](https://quay.io/repository/buildo/docker-s3-backed-ftp-server)
 
 ### Run
 
